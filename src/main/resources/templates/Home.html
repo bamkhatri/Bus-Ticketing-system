@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymleaf.org/extras/spring-security">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type = "text/css" href="user/assets/css/home.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
+	
+
+
+<style>
+.mySlides {
+	display: none;
+}
+</style>
+</head>
+<body style = "background-color:#aeb58b">
+
+	
+	
+	
+				
+
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header ">
+				<a class="navbar-brand" href="#"> <img class="logo"
+					src="/img/buslogo.jpg">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li id="home" class="active"><a href="/home">Home</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Help</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				
+				<li><a href="/register"><span
+						class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+				<li><a href="/login"><span
+						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			</ul>
+			
+				
+			
+		</div>
+	</nav>
+
+	<section class="containers">
+
+		<div class="background container">
+			<div class="transbox">
+				<h1 class="head">Travel Nepal</h1>
+
+
+				<div class="form">
+					<h3 class="head"
+						style="font-family: graviola regular;color: white; padding-right: 100px; font-size: 50px;">Where
+						Do You Want To Go?</h3>
+					<form id="travel">
+						<div class="form-group">
+							<label for="fromDestination">From:</label> <input style="width: 50%;"
+								type="text" class="form-control" id = "fromDestination" name = "fromDestination"/>
+						</div>
+						<div class="form-group">
+							<label for="toDestination">To:</label> <input style="width: 50%;"
+								type="text" class="form-control" id = "toDestination" name = "toDestination"/>
+						</div>
+						<div class="form-group">
+							<label for="date">Date:</label> <input style="width: 50%;"
+								type="date" class="form-control" id = "date" name = "date"/>
+						</div>
+						<button type="submit" class="btn btn-primary" id = "submit">Search</button>
+					</form>
+
+
+				</div>
+
+			</div>
+		</div>
+		
+		<div class="container">
+
+
+
+			<div id="examples">
+				<h4 class="head" style="color: black;">Bus Details</h4>
+				<table id="hometable" class="table table-hover">
+					<thead>
+						<tr>
+							<th data-field = "bus_Id">Bus_Id</th>
+							<th data-field = "bus_Type">Bus</th>
+							<th data-field = "departure">Departure</th>
+							<th data-field = "fare">Fare</th>
+							<th data-field = "seats_Available">Seats</th>
+							<th data-field = "travels">Travels</th>
+							<th data-field = "date">Date</th>
+
+
+						</tr>
+					</thead>
+
+				</table>
+
+			</div>
+
+
+		</div>
+		<div class="container"
+			style="background-color: #aeb58b; margin-top: 50px; margin-bottom: 50px;">
+			<div id="font">
+				<div class="col-md-4">
+					<span style="color: SpringGreen; padding-left: 40%;"><i
+						class="far fa-hourglass fa-5x"></i></span>
+					<h3 style="text-align: center;">Save Time</h3>
+					<p style="text-align: center;">Skip the line and book your bus
+						tickets in no time</p>
+				</div>
+				<div class="col-md-4">
+					<span style="color: SpringGreen; padding-left: 40%;"><i
+						class="fas fa-dollar-sign fa-5x"></i></span>
+					<h3 style="text-align: center;">Keep Options</h3>
+					<p style="text-align: center">Compare prices,schedules</p>
+				</div>
+				<div class="col-md-4">
+
+					<span style="color: SpringGreen; padding-left: 40%;"><i
+						class="fas fa-bus fa-5x"></i></span>
+					<h3 style="text-align: center">Many Travels</h3>
+					<p style="text-align: center">Many Travels available</p>
+				</div>
+
+
+			</div>
+		
+
+		</div>
+		<hr style="border-top: 1px dotted black; margin-left: 10%; margin-right:10%;margin-bottom:10%;margin-top:10%">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="contain-wrapper">
+						<div class="img-responsive">
+							<img src="img/bus4.jpg" class = "img-thumbnail" style="width: 85%" />
+						</div>
+						<div class="text-wrapper">
+							<a href="#">
+								<h4 class="text-uppercase">Tourist Bus</h4>
+
+								<p>* free wifi</p>
+								<p>* A/C</p>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="contain-wrapper">
+						<div class="img-responsive">
+							<img src="img/bus5.jpg" class = "img-thumbnail" style="width: 85%" />
+						</div>
+						<div class="text-wrapper">
+							<a href="#">
+								<h4 class="text-uppercase">Ac Hiace</h4>
+
+								<p>* 15 seats</p>
+								<p>* A/C</p>
+
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="contain-wrapper">
+						<div class="img-responsive">
+							<img src="img/bus6.jpg" class = "img-thumbnail" style="width: 85%" />
+						</div>
+						<div class="text-wrapper">
+							<a href="#">
+								<h4 class="text-uppercase">Volvo</h4>
+								<p>* Free Wifi</p>
+								<p>* A/C</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h2 class="head w3-center">Bus Model</h2>
+
+		<div id="img" class="w3-content w3-display-container">
+
+			<img class="mySlides" src="/img/bus4.jpg" style="width: 100%">
+
+			<img class="mySlides" src="/img/bus2.jpg" style="width: 100%">
+			<img class="mySlides" src="/img/bus3.jpg" style="width: 100%">
+
+
+			<button class="w3-button w3-black w3-display-left"
+				onclick="plusDivs(-1)">&#10094;</button>
+			<button class="w3-button w3-black w3-display-right"
+				onclick="plusDivs(1)">&#10095;</button>
+		</div>
+	</section>
+	
+	<div class="modal fade" id="admin" tabindex="-1" role="dialog"
+		aria-labelledby="adminlabeled" aria-hidden="true">
+		<div id="admin" class="modal-dialog" role="document">
+			<div class="modal-content">
+
+				<div class="modal-body">
+
+
+					<form id="admin" class="was-validated">
+						<div class="form-group">
+							<p class="h4 mb-4" style="text-align: center">Admin Sign in</p>
+							<label>Email</label> <input type="text" class="form-control"
+								placeholder="Enter Email" name="email" required> <label>Password</label>
+							<input type="password" class="form-control"
+								placeholder="Enter Password" name="password" required>
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input"
+									> <label
+									class="custom-control-label" for="defaultLoginFormRemember">Remember
+									me</label>
+							</div>
+
+
+
+
+						</div>
+
+						<button class="btn btn-info btn-block my-4" type="submit">Sign
+							in</button>
+
+
+
+
+					</form>
+
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	
+	
+	<div class="container" style="background-color: #3c3d41">
+
+		<footer id="myFooter">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<img src="/img/buslogo.jpg" style="width: 80%;">
+					</div>
+					<div class="col-sm-2">
+						<h5>Get started</h5>
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Sign up</a></li>
+							<li><a href="#">Downloads</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>About us</h5>
+						<ul>
+							<li><a href="#">Company Information</a></li>
+							<li><a href="#">Contact us</a></li>
+							<li><a href="#">Reviews</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>Support</h5>
+						<ul>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Help desk</a></li>
+							<li><a href="#">Forums</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-3">
+						<div class="social-networks">
+							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+								href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+								href="#" class="google"><i class="fa fa-google-plus"></i></a>
+						</div>
+						<button type="button" class="btn btn-default">Contact us</button>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<p>© 2016 Copyright Text</p>
+			</div>
+		</footer>
+
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+		src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+
+<script>
+		
+		$('#examples').hide();
+		
+		$('#travel').submit(function(e){
+				
+			e.preventDefault();
+			
+			
+			
+			$.ajax({
+				
+
+				url : '/findbus',
+				type : 'POST',
+				data : $('form[id=travel]').serialize(),
+				
+				success : function(data) {
+
+					console.log(data);
+					$('#examples').show();
+
+					var table = $('#hometable').bootstrapTable({
+						
+						data : data,
+						columns: [ {},{},{},{},{},{},  
+			                {
+			                  field: 'operate',
+			                  title: 'Book',
+			                  align: 'left',
+			                  valign: 'middle',
+			                  clickToSelect: true,
+			                  formatter : function() {
+			                    //return '<input name="elementname"  value="'+value+'"/>';
+			                    return '<a href = "/user/passengerpage"><button class=\'btn btn-primary \'  >Book</button></a> ';
+			                  }
+			                }
+			              ]
+						
+
+					});
+
+				},
+				error:function(request){
+					
+					console.log(request)
+					
+					if(request.status == 500){
+						 
+						 swal({
+	 						 	title: "Error",
+	  							text: request.responseJSON.message,
+	 							icon: "error",
+	 							button: "ok",
+	 						
+						});
+						 
+						 
+					 }
+					
+					
+					
+				}
+				
+			})
+		})
+		
+		var slideIndex = 0;
+		carousel();
+		
+		function carousel() {
+			var i;
+			var x = document.getElementsByClassName("mySlides");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			slideIndex++;
+			if (slideIndex > x.length) {
+				slideIndex = 1
+			}
+			x[slideIndex - 1].style.display = "block";
+			setTimeout(carousel, 5000); // Change image every 2 seconds
+		}
+
+
+
+		$('a[href$="#myModals"]').on("click", function() {
+			$('#myModals').modal('show');
+		});
+		
+		$('a[href$="#myModalss"]').on("click", function() {
+			$('#myModalss').modal('show');
+		});
+		$('a[href$="#admin"]').on("click", function() {
+			$('#admin').modal('show');
+		});
+
+</script>
+		 
+</html>

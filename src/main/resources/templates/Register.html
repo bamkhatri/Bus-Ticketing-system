@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec = "http://www.thymleaf.org/extras/spring-security">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type = "text/css" href="user/assets/css/LoginPage.css">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
+</head>
+<body>
+		<nav class="navbar navbar-inverse" style = "margin-top: -40px;">
+								<div class="container-fluid">
+									<div class="navbar-header ">
+										<a class="navbar-brand" href="#"> <img class="logo"
+											src="/img/buslogo.jpg">
+										</a>
+									</div>
+									<ul class="nav navbar-nav">
+										<li id="home" class="active"><a href="#">Home</a></li>
+										<li><a href="#">About Us</a></li>
+										<li><a href="#">Help</a></li>
+									</ul>
+									<ul class="nav navbar-nav navbar-right">
+										<li><a href="/register"><span
+												class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+										<li><a href="/login"><span
+												class="glyphicon glyphicon-log-in"></span> Login</a></li>
+									</ul>
+								</div>
+		</nav>
+		
+		<div class = "container">
+			
+			<div class = "row">
+				
+				<div class = "col-md-6 mx-auto">
+				
+					
+						
+							<div class="myform form ">
+								 <div class="logo mb-3">
+									 <div class="col-md-12 text-center">
+										<h1>Register</h1>
+									 </div>
+								</div>
+			                   <form th:action = "@{/registerUser}" th:object = "${user}" method = "post" ><!--   -->
+			                           <div class="form-group">
+			                              <label for="exampleInputEmail1">Name:</label>
+			                              <input type="text" name="name"  class="form-control" th:field = "*{name}" aria-describedby="emailHelp" placeholder="Enter Name">
+			                           </div>
+			                           <div class = "alert alert-danger" th:if = "${#fields.hasErrors('name')}">
+			                           			
+			                           		<p th:text = "${#fields.errors('name')}" th:errors = "*{name}"></p>		                           		
+			                           
+			                           </div>
+			                           <div class="form-group">
+			                              <label for="exampleInputEmail1">UserName:</label>
+			                              <input type="text" name="userName" th:field = "*{userName}"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Username">
+			                           </div>
+			                           <div class = "alert alert-danger" th:if = "${#fields.hasErrors('userName')}">
+			                           			
+			                           		<p th:text = "${#fields.errors('userName')}" th:errors = "*{userName}"></p>		                           		
+			                           
+			                           </div>
+			                           <div class="form-group">
+			                              <label for="exampleInputEmail1">Password</label>
+			                              <input type="password" id = "password" name="password" th:field = "*{password}" class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+			                           </div>
+			                           <div class = "alert alert-danger" th:if = "${#fields.hasErrors('password')}">
+			                           			
+			                           		<p th:text = "${#fields.errors('password')}" th:errors = "*{password}"></p>		                           		
+			                           
+			                           </div>
+			                           
+			                           <div class="form-group">
+			                              <label for="exampleInputEmail1">Mobile No.:</label>
+			                              <input type="text" name="number" th:field = "*{number}" class="form-control" aria-describedby="emailHelp" placeholder="Enter Number">
+			                           </div>
+			                           <div class = "alert alert-danger" th:if = "${#fields.hasErrors('number')}">
+			                           			
+			                           		<p th:text = "${#fields.errors('number')}" th:errors = "*{number}"></p>		                           		
+			                           
+			                           </div>
+			                           
+			                           
+			                          <!--  <div class = "alert alert-danger" th:if = "${#fields.hasErrors('*')}">
+						                    <ul >
+												<li th:each = "err : ${#fields.errors('*')}" th:text = "${err}" />
+											</ul>
+											<div style = "font-size:100" th:text="${userPresent}"></div>
+						               </div> -->
+			                           <div class="form-group">
+			                              <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
+			                           </div>
+			                           <div class="col-md-12 text-center ">
+			                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" >Register</button>
+			                           </div>
+			                           <div class="col-md-12 ">
+			                              <div class="login-or">
+			                                 <hr class="hr-or">
+			                                 <span class="span-or">or</span>
+			                              </div>
+			                           </div>
+			                           <div class="col-md-12 mb-3">
+			                              <p class="text-center">
+			                                 <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus">
+			                                 </i> Signup using Google
+			                                 </a>
+			                              </p>
+			                           </div>
+			                          </form>
+			                 
+							</div>
+					
+				
+				</div>
+				<div class = "col-md-6 mx-auto">
+					
+						<h2>Benefits Of Having An Account</h2>
+						<ul>
+							<li>View Your Ticketing History</li>
+							<li>Print your Ticket AnyTime</li>
+							<li>View Your Personal Profile</li>
+						</ul>
+				
+				</div>
+			
+			</div>
+		
+		
+		</div>
+		<div class="container" style="background-color: #3c3d41">
+
+		<footer id="myFooter">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3">
+						<img src="/img/buslogo.jpg" style="width: 80%;">
+					</div>
+					<div class="col-sm-2">
+						<h5>Get started</h5>
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Sign up</a></li>
+							<li><a href="#">Downloads</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>About us</h5>
+						<ul>
+							<li><a href="#">Company Information</a></li>
+							<li><a href="#">Contact us</a></li>
+							<li><a href="#">Reviews</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-2">
+						<h5>Support</h5>
+						<ul>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Help desk</a></li>
+							<li><a href="#">Forums</a></li>
+						</ul>
+					</div>
+					<div class="col-sm-3">
+						<div class="social-networks">
+							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+								href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+								href="#" class="google"><i class="fa fa-google-plus"></i></a>
+						</div>
+						<button type="button" class="btn btn-default">Contact us</button>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<p>© 2016 Copyright Text</p>
+			</div>
+		</footer>
+
+
+
+	</div>
+		
+	
+</body>
+
+</html>

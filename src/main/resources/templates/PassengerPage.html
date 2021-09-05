@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type = "text/css" href="/user/assets/css/home.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header ">
+				<a class="navbar-brand" href="#"> <img class="logo"
+					src="/img/buslogo.jpg">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li id="home" class="active"><a href="#">Book Tickets</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a id="myticket" href="/user/myticket" >MyTicket</a></li>
+				
+			</ul>
+			<ul class="nav navbar-right navbar-nav">
+				<li style = "padding-top: 10px;">
+						<form class = "form-inline my-2 my-lg" style = "padding-top: 4px;" form-method = "post" th:action = "@{/logout}">
+							
+							<button type = "submit" class = "btn btn-dark btn-sm my-2 my-sm-0">Logout</button>
+								
+						</form>
+				</li>
+				
+			</ul>
+
+		</div>
+	</nav>
+
+
+	<div id="main">
+		<div class="container">
+			
+			<hr>
+			<div class="row">
+
+				<div class="col-md-4">
+					<h2 style = "background-color: #e2ded9;text-align: center;padding: 20px;">Seat Plan</h2>
+					<div id = "busseat" style = "padding-left: 100px;">
+						<img src="/img/seat_border_733.png" style = "width: 20px;">
+						<input type = "checkbox" name = "seat" id = "seat1" value = "A1">
+						<img src="/img/seat_border_733.png" style = "width: 20px;">
+						<input type = "checkbox" name = "seat" id = "seat2" value = "A2"><br>
+						<img src="/img/seat_border_733.png" style = "width: 20px;">
+						<input type = "checkbox" name = "seat" id = "seat2" value = "A3">
+						<img src="/img/seat_border_733.png" style = "width: 20px;">
+						<input type = "checkbox" name = "seat" id = "seat2" value = "A4"><br>
+						<img src="/img/seat_border_733.png" style = "width: 20px;">
+						<input type = "checkbox" name = "seat" id = "seat2" value = "A5">
+						<img src="/img/seat_border_733.png" style = "width: 20px;">
+						<input type = "checkbox" name = "seat" id = "seat2" value = "A6"><br>
+						
+						<div style = "margin-left: -80px;">
+							<img src="/img/seat_border_733.png" style = "width: 20px;">
+							<input type = "checkbox" name = "seat" id = "seat2" value = "A7">
+							<img src="/img/seat_border_733.png" style = "width: 20px;">
+							<input type = "checkbox" name = "seat" id = "seat2" value = "A8">
+							<img src="/img/seat_border_733.png" style = "width: 20px;">
+							<input type = "checkbox" name = "seat" id = "seat2" value = "A9">
+							<img src="/img/seat_border_733.png" style = "width: 20px;">
+							<input type = "checkbox" name = "seat" id = "seat2" value = "A10">
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="col-md-4">
+					
+					<p class="h2 mb-4" style="text-align: center;padding: 20px;background-color: #e2ded9;">Passenger Details</p>
+									
+					<form id = "passenger" class="border border-light p-5" style = "padding-top: 20px;"> 
+
+
+
+						<div class="form-row">
+							<div class="col">
+								<!-- First name -->
+								<label>Name Of The Passenger:</label> <input type="text"
+									id="defaultRegisterFormFirstName" class="form-control"
+									placeholder="Name" name="name_of_the_passenger">
+							</div>
+							<div class="col">
+								<!-- Last name -->
+								<label>Contact Number:</label> <input type="text"
+									id="defaultRegisterFormLastName" class="form-control"
+									placeholder="Number" name="mobile_Number">
+							</div>
+							<div class = "col">
+								
+								<label>Seats:</label> 
+								<input type = "text" id = "seats1" class = "form-control" placeholder = "Seat" name = "seat">
+								
+							
+							</div>
+							
+						</div>
+						<p class="h2 mb-4" style="text-align: center;padding: 20px;background-color: #e2ded9;">Payment Method</p>
+						
+						<img src="/img/esewa.jpg" style = "width: 100px;">
+						<input type = "radio" checked>eSewa
+						<img src = "/img/ime pay.png" style = "width: 100px;"> 
+						<input type = "radio">IME Pay<br>
+						<img src = "/img/prabhu pay.png" style = "width: 100px;">
+						<input type = "radio">eBanking<br>				 					
+						
+						<!-- Sign up button -->
+						<button style="margin-top: 30px"
+							class="btn btn-info my-4 btn-block" type="submit">Confirm</button>
+					</form>
+				</div>
+				<div class = "col-md-4">
+				
+					<h2 style = "text-align: center;">Travel Details</h2>
+					
+					
+						
+						<div th:each = "bus: ${bus}" style = "padding-top: 20px;padding-left: 20px;background-color: #e2ded9">
+							
+							
+							
+							<b>Route:</b> <span th:text = "${bus.fromDestination}"></span>-<span th:text = "${bus.toDestination}"></span><br>
+							<b>Fare:</b> <span th:text = "${bus.fare}"></span><br>
+							<b>Date:</b> <span th:text = "${bus.date}"></span><br>
+							<b>Travels:</b> <span th:text = "${bus.travels}"></span>
+							
+						</div>
+						
+					<h2 style = "text-align:center">Payment Details</h2>
+							
+					<div style = "background-color: #e2ded9;padding-top: 20px;padding-left: 20px;">
+					
+						<b>Total Price:</b><span id = "price"></span>
+						
+						
+					</div>
+					
+					
+				
+				</div>
+			</div>
+
+
+
+		</div>
+		<div id = "checkdata"></div>
+
+		<div id="progress" class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar"
+				aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+				style="width: 50%">50% Complete</div>
+		</div>
+
+
+
+
+	</div>
+	
+
+	<section class="wrap"
+		style="background-color: #3c3d41; margin-top: 100px">
+
+		<div class="container">
+
+			<footer id="myFooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="/img/buslogo.jpg" style="width: 80%;">
+						</div>
+						<div class="col-sm-2">
+							<h5>Get started</h5>
+							<ul>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Sign up</a></li>
+								<li><a href="#">Downloads</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-2">
+							<h5>About us</h5>
+							<ul>
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Contact us</a></li>
+								<li><a href="#">Reviews</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-2">
+							<h5>Support</h5>
+							<ul>
+								<li><a href="#">FAQ</a></li>
+								<li><a href="#">Help desk</a></li>
+								<li><a href="#">Forums</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-3">
+							<div class="social-networks">
+								<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+									href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+									href="#" class="google"><i class="fa fa-google-plus"></i></a>
+							</div>
+							<button type="button" class="btn btn-default">Contact us</button>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright">
+					<p>© 2016 Copyright Text</p>
+				</div>
+			</footer>
+		</div>
+
+
+	</section>
+
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+	
+	
+	
+	$(document).ready(function(){
+		
+		
+		var seats = [];
+		var price;
+		var totalPrice;
+		var totalSeats;
+		
+		$.ajax({
+			
+			url:'/getFare',
+			type:'GET',
+			success:function(data){
+				
+				
+				console.log(data);
+				price = data;
+			}
+			
+		})
+		
+		$('input[type="checkbox"]').click(function(){
+			
+			
+			
+			$.each($('input[name="seat"]:checked'),function(){
+				
+				seats.push($(this).val());
+				
+				console.log(seats);
+				
+			});
+			document.getElementById('seats1').value = seats;
+			
+			totalSeats = seats.length;
+			console.log(totalSeats)
+			totalPrice = totalSeats * price;
+			document.getElementById('price').innerHTML = totalPrice;
+			seats = [];
+			
+			
+			
+			
+			
+			
+			
+			
+		});
+		
+		
+		
+		
+		
+				$('#passenger').submit(function(e) {
+					
+					e.preventDefault();
+					
+					swal({
+						  title: "Confirmation!",
+						  text: "Are you sure?",
+						  icon: "warning",
+						  buttons: true,
+						  dangerMode: true,
+						})							
+						.then((willDelete) => {
+						  if (willDelete) {
+						    swal("Successfully booked!", {
+						      icon: "success",
+						    }).then(function(){
+						    	 
+		
+									$.ajax({
+						
+										url : '/savePassenger',
+										type : 'POST',
+										data : $('form[id=passenger]').serialize(),
+										success : function(data) {
+											
+											
+											console.log(data.bus);
+											reduceSeat(data.bus); 
+											
+											window.location = '/userpage';	 
+																				
+						
+										},
+									 error: function (request) {
+										 
+										 if(request.status == 500){
+											 
+											 swal({
+						 						 	title: "Sorry",
+						  							text: request.responseJSON.message,
+						 							icon: "error",
+						 							button: "ok",
+						 						
+											});
+											 
+											 
+										 }
+								        
+								    }		
+										
+										
+										
+									
+						
+									});
+									
+								 
+							});
+						  } else {
+						    swal("not saved");
+						  }
+						});
+		
+					
+			});
+		
+		
+		function reduceSeat(reduceSeat){
+		
+		
+			
+			$.ajax({
+		
+				url : '/reduceSeat',
+				type : 'POST',
+				contenType : 'application/json',
+				data : reduceSeat,
+				success : function(data) {
+		
+					console.log(data);
+					
+					
+		
+				},
+				error:function(request){
+					
+					if(request.status == 500){
+						 
+						 swal({
+								 	title: "Sorry",
+									text: "Reduuce seat error",
+									icon: "error",
+									button: "ok",
+								
+						});
+						 
+						 
+					 }
+					
+					
+					
+				}
+				
+		
+			});
+		
+		}
+		
+				
+		
+		
+		
+	});
+	    
+	
+	
+
+</script>
+</html>

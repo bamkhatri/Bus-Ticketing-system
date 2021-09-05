@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/user/assets/css/home.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header ">
+				<a class="navbar-brand" href="#"> <img class="logo"
+					src="/img/buslogo.jpg">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a id="home" href="/userpage">Book Tickets</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a id="myticket" href="#">MyTicket</a></li>
+
+			</ul>
+			<ul class="nav navbar-right navbar-nav">
+				<li style = "padding-top: 10px;">
+						<form class = "form-inline my-2 my-lg" style = "padding-top: 4px;" form-method = "post" th:action = "@{/logout}">
+							
+							<button type = "submit" class = "btn btn-dark btn-sm my-2 my-sm-0">Logout</button>
+								
+						</form>
+				</li>
+				
+			</ul>
+
+		</div>
+	</nav>
+
+	<div class="containers" style="background-color: white">
+
+		
+
+
+
+		<div class="row">
+
+
+		
+			
+			<div id="examples">
+				<h4 class="head" style="color: black;">Booked Tickets</h4>
+				<div id = "checkdata" style = "visibility:hidden">
+					<h2 id = "nobus" style = "text-align: center;"></h2>
+				</div>
+				<div id = "maintable">
+						<table id="hometable" class="table table-hover">
+							<thead>
+								<tr>
+									<th></th>
+									<th >P_Id</th>
+									<th data-field = "bus_Type">Name</th>
+									<th data-field = "departure">Seat No.</th>
+									<th data-field = "fare">Mobile No.</th>
+									
+									<th>Action</th>
+		
+		
+								</tr>
+							</thead>
+
+				</table>
+						
+				</div>
+				
+			</div>
+			
+		
+
+
+
+		</div>
+	</div>
+	<section class="wrap"
+		style="background-color: #3c3d41; margin-top: 100px">
+
+		<div class="container">
+
+			<footer id="myFooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="/img/buslogo.jpg" style="width: 80%;">
+						</div>
+						<div class="col-sm-2">
+							<h5>Get started</h5>
+							<ul>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Sign up</a></li>
+								<li><a href="#">Downloads</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-2">
+							<h5>About us</h5>
+							<ul>
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Contact us</a></li>
+								<li><a href="#">Reviews</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-2">
+							<h5>Support</h5>
+							<ul>
+								<li><a href="#">FAQ</a></li>
+								<li><a href="#">Help desk</a></li>
+								<li><a href="#">Forums</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-3">
+							<div class="social-networks">
+								<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+									href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+									href="#" class="google"><i class="fa fa-google-plus"></i></a>
+							</div>
+							<button type="button" class="btn btn-default">Contact us</button>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright">
+					<p>© 2016 Copyright Text</p>
+				</div>
+			</footer>
+		</div>
+
+
+	</section>
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script
+		src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+	
+		$.ajax({
+			
+			url:'/findbookedbus',
+			type:'GET',
+			contentType : 'application/json',
+			success:function(data){
+					
+					console.log(data)
+					console.log(data.length)
+					if(data == null || data.length == 0){
+						
+						document.getElementById('checkdata').style.visibility = 'visible';
+						document.getElementById('nobus').innerHTML = 'No Buses Booked';
+						document.getElementById('maintable').style.visibility = 'hidden';
+						
+					}
+					var table = $('#hometable').DataTable({
+					
+					data : data,
+					columns: [
+						{
+							"class" : "details-control",
+							"orderable" : false,
+							"data" : null,
+							"defaultContent" : ""
+						},
+
+						{
+							data : 'p_id'
+						},
+						{
+							data : 'name_of_the_passenger'
+						},
+						{
+							data : 'seat'
+						},
+						{
+							data : 'mobile_Number'
+						},
+						
+						
+						
+						{
+							'data' : null,
+							'render' : function(
+									data,
+									type,
+									row) {
+
+								return '<button type = "button" class = "btn-book btn-primary" >Print Ticket</button>'
+							}
+						}
+
+				
+
+		              ]
+					
+
+				});  
+					$('#hometable tbody')
+					.on(
+							'click',
+							'.btn-book',
+							function() {
+								var $row = $(this)
+										.closest(
+												'tr');
+								var data = $('#hometable')
+										.DataTable()
+										.row($row)
+										.data();
+
+								console.log(data);
+								
+
+								$.ajax({
+
+											url : '/user/print',
+											type : 'POST',
+											data: {
+												'p_id':data.p_id,
+												'name_of_the_passenger':data.name_of_the_passenger,
+												'mobile_Number':data.mobile_Number,
+												'seat':data.seat
+											},
+											success : function(data) {
+
+												console.log(data);
+												
+												  window.location = "/user/printticket"; 
+
+											},
+											error:function(request){
+												
+												if(request.status == 500){
+													 
+													 swal({
+								 						 	title: "Error",
+								  							text: request.responseJSON.message,
+								 							icon: "error",
+								 							button: "ok",
+								 						
+													});
+													 
+													 
+												 }
+												
+												
+												
+											}
+											
+
+										});
+
+								// Add your code here   
+
+							});
+				 
+			},
+			error:function(request){
+				
+				console.log(request)
+				
+				if(request.status == 500){
+					 
+					 swal({
+ 						 	title: "Error",
+  							text: request.responseJSON.message,
+ 							icon: "error",
+ 							button: "ok",
+ 						
+					});
+					 
+					 
+				 }
+				
+				
+				
+			}
+		})
+	})
+				
+			
+	
+
+</script>
+</html>

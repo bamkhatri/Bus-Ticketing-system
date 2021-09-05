@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/user/assets/css/home.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
+</head>
+<body>
+	
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header ">
+				<a class="navbar-brand" href="#"> <img class="logo"
+					src="/img/buslogo.jpg">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a id="home" href="#">Book Tickets</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a id="myticket" href="#">MyTicket</a></li>
+
+			</ul>
+			<ul class="nav navbar-right navbar-nav">
+				<li style = "padding-top: 10px;">
+						<form class = "form-inline my-2 my-lg" style = "padding-top: 4px;" form-method = "post" th:action = "@{/logout}">
+							
+							<button type = "submit" class = "btn btn-dark btn-sm my-2 my-sm-0">Logout</button>
+								
+						</form>
+				</li>
+				
+			</ul>
+
+		</div>
+	</nav>
+	
+	<div class = "container">
+	
+			
+			<div class="jumbotron">
+				<h1 style="text-align: center">Ticket Details</h1>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<h2 style="margin-left: 60%; color: #f32929; font-family: Comic Sans MS;">Travel Nepal</h2>
+				</div>
+				<div class="col-md-6" style = "padding-right: 400px">
+					<p style="margin-left: 40%;">Central Office</p>
+					<p style="margin-left: 40%;">Baneshwor,Kathmandu</p>
+					<p style="margin-left: 10%;">E-mail:travelnepal@gmail.com</p>
+				</div>
+	
+	
+			</div>
+			<div class = "row">
+			
+			
+					<div id="display" class="col-md-6" style="padding-left: 300px;">
+					
+						<h2>Bus Details</h2>
+						<hr>
+						<tr th:each = "bus: ${bus}">
+							
+							<td ><div style="display:block;font-size:20px">Date: <span th:text = "${bus.date}"></span></div></td><br>
+							<td><div style="display:block;font-size:20px">BusName: <span th:text = "${bus.bus_Type}"></span></div></td><br>
+							<td><div style="display:block;font-size:20px">Fare: <span th:text = "${bus.fare}"></span></div></td><br>
+							<td><div style="display:block;font-size:20px">From: <span th:text = "${bus.fromDestination}"></span></div></td><br>
+							<td><div style="display:block;font-size:20px">to: <span th:text = "${bus.toDestination}"></span></div></td><br>
+							<td><div style="display:block;font-size:20px">Departure: <span th:text = "${bus.departure}"></span></div></td><br>
+							
+						</tr>
+					
+					</div>
+					<div id="display1" class="col-md-6" style="padding-right: 200px;">
+					
+						<h2>Passenger Details</h2>
+						<hr>
+						<tr th:each = "passenger: ${passenger}">
+						
+							<td><div style="display:block;font-size:20px">Name: <span th:text = "${passenger.name_of_the_passenger}"></span></div></td><br>
+							<td><div style="display:block;font-size:20px">Mobile No.: <span th:text = "${passenger.mobile_Number}"></span></div></td><br>
+							<td><div style="display:block;font-size:20px">Seat: <span th:text = "${passenger.seat}"></span></div></td>
+						
+						</tr>
+					
+					</div>
+					
+		</div>
+		<div>
+						<button class = "btn btn-success" style = "margin-left: 200px;">Print</button>
+						<button class = "btn btn-danger" style = "margin-left: 500px;">cancel</button>
+		</div>
+		
+	</div>
+	<section class="wrap"
+		style="background-color: #3c3d41; margin-top: 100px">
+
+		<div class="container">
+
+			<footer id="myFooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="/img/buslogo.jpg" style="width: 80%;">
+						</div>
+						<div class="col-sm-2">
+							<h5>Get started</h5>
+							<ul>
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Sign up</a></li>
+								<li><a href="#">Downloads</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-2">
+							<h5>About us</h5>
+							<ul>
+								<li><a href="#">Company Information</a></li>
+								<li><a href="#">Contact us</a></li>
+								<li><a href="#">Reviews</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-2">
+							<h5>Support</h5>
+							<ul>
+								<li><a href="#">FAQ</a></li>
+								<li><a href="#">Help desk</a></li>
+								<li><a href="#">Forums</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-3">
+							<div class="social-networks">
+								<a href="#" class="twitter"><i class="fa fa-twitter"></i></a> <a
+									href="#" class="facebook"><i class="fa fa-facebook"></i></a> <a
+									href="#" class="google"><i class="fa fa-google-plus"></i></a>
+							</div>
+							<button type="button" class="btn btn-default">Contact us</button>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright">
+					<p>© 2016 Copyright Text</p>
+				</div>
+			</footer>
+		</div>
+
+
+	</section>
+
+</body>
+</html>
